@@ -1,0 +1,8 @@
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\bin\Debug\Shoyeido Work Calculator.exe.config
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\obj\Debug\Shoyeido_Work_Calculator.Shoyeido.resources
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\obj\Debug\Shoyeido_Work_Calculator.Properties.Resources.resources
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\obj\Debug\Shoyeido Work Calculator.csproj.GenerateResource.Cache
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\bin\Debug\Shoyeido Work Calculator.exe
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\bin\Debug\Shoyeido Work Calculator.pdb
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\obj\Debug\Shoyeido Work Calculator.exe
+D:\Users\Colin\Documents\Visual Studio 2013\Projects\Shoyeido Work Calculator\Shoyeido Work Calculator\obj\Debug\Shoyeido Work Calculator.pdb

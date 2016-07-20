@@ -138,7 +138,7 @@
             // 
             // SpareTime
             // 
-            this.SpareTime.Location = new System.Drawing.Point(67, 233);
+            this.SpareTime.Location = new System.Drawing.Point(3, 233);
             this.SpareTime.Name = "SpareTime";
             this.SpareTime.ReadOnly = true;
             this.SpareTime.Size = new System.Drawing.Size(59, 20);
@@ -150,7 +150,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label3.Location = new System.Drawing.Point(64, 217);
+            this.label3.Location = new System.Drawing.Point(0, 217);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 6;
@@ -198,7 +198,7 @@
             // 
             // CurrentTime
             // 
-            this.CurrentTime.Location = new System.Drawing.Point(2, 233);
+            this.CurrentTime.Location = new System.Drawing.Point(139, 194);
             this.CurrentTime.Name = "CurrentTime";
             this.CurrentTime.ReadOnly = true;
             this.CurrentTime.Size = new System.Drawing.Size(59, 20);
@@ -210,7 +210,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label6.Location = new System.Drawing.Point(-1, 217);
+            this.label6.Location = new System.Drawing.Point(136, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 12;
@@ -218,7 +218,7 @@
             // 
             // YearsBut
             // 
-            this.YearsBut.Location = new System.Drawing.Point(2, 385);
+            this.YearsBut.Location = new System.Drawing.Point(13, 346);
             this.YearsBut.Name = "YearsBut";
             this.YearsBut.Size = new System.Drawing.Size(62, 23);
             this.YearsBut.TabIndex = 14;
@@ -228,7 +228,7 @@
             // 
             // MonthsBut
             // 
-            this.MonthsBut.Location = new System.Drawing.Point(2, 356);
+            this.MonthsBut.Location = new System.Drawing.Point(13, 317);
             this.MonthsBut.Name = "MonthsBut";
             this.MonthsBut.Size = new System.Drawing.Size(62, 23);
             this.MonthsBut.TabIndex = 15;
@@ -238,7 +238,7 @@
             // 
             // WeeksBut
             // 
-            this.WeeksBut.Location = new System.Drawing.Point(2, 327);
+            this.WeeksBut.Location = new System.Drawing.Point(13, 288);
             this.WeeksBut.Name = "WeeksBut";
             this.WeeksBut.Size = new System.Drawing.Size(62, 23);
             this.WeeksBut.TabIndex = 16;
@@ -248,7 +248,7 @@
             // 
             // WeekdayBut
             // 
-            this.WeekdayBut.Location = new System.Drawing.Point(2, 298);
+            this.WeekdayBut.Location = new System.Drawing.Point(13, 259);
             this.WeekdayBut.Name = "WeekdayBut";
             this.WeekdayBut.Size = new System.Drawing.Size(62, 23);
             this.WeekdayBut.TabIndex = 17;
@@ -258,7 +258,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(70, 298);
+            this.button1.Location = new System.Drawing.Point(81, 259);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(52, 23);
             this.button1.TabIndex = 18;
@@ -268,7 +268,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(70, 327);
+            this.button2.Location = new System.Drawing.Point(81, 288);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(52, 23);
             this.button2.TabIndex = 19;
@@ -278,7 +278,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(70, 356);
+            this.button3.Location = new System.Drawing.Point(81, 317);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(52, 23);
             this.button3.TabIndex = 20;
@@ -288,7 +288,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(70, 385);
+            this.button4.Location = new System.Drawing.Point(81, 346);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(52, 23);
             this.button4.TabIndex = 21;
@@ -298,7 +298,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(70, 414);
+            this.button5.Location = new System.Drawing.Point(81, 375);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(53, 23);
             this.button5.TabIndex = 22;
@@ -308,7 +308,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(70, 443);
+            this.button6.Location = new System.Drawing.Point(138, 259);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(53, 23);
             this.button6.TabIndex = 23;
@@ -318,7 +318,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(70, 472);
+            this.button7.Location = new System.Drawing.Point(138, 288);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(52, 23);
             this.button7.TabIndex = 24;
@@ -328,7 +328,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(70, 501);
+            this.button8.Location = new System.Drawing.Point(138, 317);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(53, 23);
             this.button8.TabIndex = 25;
@@ -338,7 +338,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(70, 530);
+            this.button9.Location = new System.Drawing.Point(139, 346);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(52, 23);
             this.button9.TabIndex = 26;
@@ -348,7 +348,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(70, 559);
+            this.button10.Location = new System.Drawing.Point(138, 375);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(52, 23);
             this.button10.TabIndex = 27;
@@ -360,7 +360,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label1.Location = new System.Drawing.Point(-1, 256);
+            this.label1.Location = new System.Drawing.Point(70, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 28;
@@ -368,7 +368,7 @@
             // 
             // PCode
             // 
-            this.PCode.Location = new System.Drawing.Point(2, 272);
+            this.PCode.Location = new System.Drawing.Point(73, 233);
             this.PCode.Name = "PCode";
             this.PCode.Size = new System.Drawing.Size(59, 20);
             this.PCode.TabIndex = 29;
@@ -378,7 +378,7 @@
             // 
             // TZone
             // 
-            this.TZone.Location = new System.Drawing.Point(67, 272);
+            this.TZone.Location = new System.Drawing.Point(138, 233);
             this.TZone.Name = "TZone";
             this.TZone.ReadOnly = true;
             this.TZone.Size = new System.Drawing.Size(59, 20);
@@ -468,9 +468,9 @@
             // 
             // PTOFormSpawn
             // 
-            this.PTOFormSpawn.Location = new System.Drawing.Point(27, 747);
+            this.PTOFormSpawn.Location = new System.Drawing.Point(72, 502);
             this.PTOFormSpawn.Name = "PTOFormSpawn";
-            this.PTOFormSpawn.Size = new System.Drawing.Size(75, 23);
+            this.PTOFormSpawn.Size = new System.Drawing.Size(65, 23);
             this.PTOFormSpawn.TabIndex = 44;
             this.PTOFormSpawn.Text = "Add PTO";
             this.PTOFormSpawn.UseVisualStyleBackColor = true;
@@ -478,9 +478,9 @@
             // 
             // TodayBut
             // 
-            this.TodayBut.Location = new System.Drawing.Point(27, 625);
+            this.TodayBut.Location = new System.Drawing.Point(4, 437);
             this.TodayBut.Name = "TodayBut";
-            this.TodayBut.Size = new System.Drawing.Size(75, 23);
+            this.TodayBut.Size = new System.Drawing.Size(65, 23);
             this.TodayBut.TabIndex = 45;
             this.TodayBut.Text = "Today";
             this.TodayBut.UseVisualStyleBackColor = true;
@@ -489,10 +489,10 @@
             // TomorrowBut
             // 
             this.TomorrowBut.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TomorrowBut.Location = new System.Drawing.Point(27, 651);
+            this.TomorrowBut.Location = new System.Drawing.Point(73, 437);
             this.TomorrowBut.Margin = new System.Windows.Forms.Padding(0);
             this.TomorrowBut.Name = "TomorrowBut";
-            this.TomorrowBut.Size = new System.Drawing.Size(75, 23);
+            this.TomorrowBut.Size = new System.Drawing.Size(65, 23);
             this.TomorrowBut.TabIndex = 47;
             this.TomorrowBut.Text = "Tomorrow";
             this.TomorrowBut.UseVisualStyleBackColor = true;
@@ -500,7 +500,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(70, 588);
+            this.button11.Location = new System.Drawing.Point(111, 404);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(52, 23);
             this.button11.TabIndex = 30;
@@ -510,9 +510,9 @@
             // 
             // WSPBut
             // 
-            this.WSPBut.Location = new System.Drawing.Point(27, 706);
+            this.WSPBut.Location = new System.Drawing.Point(72, 463);
             this.WSPBut.Name = "WSPBut";
-            this.WSPBut.Size = new System.Drawing.Size(75, 23);
+            this.WSPBut.Size = new System.Drawing.Size(65, 23);
             this.WSPBut.TabIndex = 48;
             this.WSPBut.Text = "WSP Sent";
             this.WSPBut.UseVisualStyleBackColor = true;
@@ -520,11 +520,11 @@
             // 
             // OneWeekBut
             // 
-            this.OneWeekBut.Location = new System.Drawing.Point(27, 677);
+            this.OneWeekBut.Location = new System.Drawing.Point(140, 437);
             this.OneWeekBut.Name = "OneWeekBut";
-            this.OneWeekBut.Size = new System.Drawing.Size(75, 23);
+            this.OneWeekBut.Size = new System.Drawing.Size(65, 23);
             this.OneWeekBut.TabIndex = 49;
-            this.OneWeekBut.Text = "Next Week";
+            this.OneWeekBut.Text = "1 Week";
             this.OneWeekBut.UseVisualStyleBackColor = true;
             this.OneWeekBut.Click += new System.EventHandler(this.OneWeekBut_Click);
             // 
@@ -552,7 +552,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(130, 782);
+            this.ClientSize = new System.Drawing.Size(209, 533);
             this.Controls.Add(this.CTDSetBut);
             this.Controls.Add(this.SetCallGoal);
             this.Controls.Add(this.OneWeekBut);

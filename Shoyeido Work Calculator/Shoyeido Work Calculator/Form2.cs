@@ -32,17 +32,7 @@ namespace Shoyeido_Work_Calculator
             datevals[0] = "";
             datevals[1] = "";
             datevals[2] = "";
-            if (File.Exists(@Path.Combine(docloc, "pto.txt")))
-            {
-                ptodates = File.ReadAllLines(@Path.Combine(docloc, "pto.txt"));
-            }
-            else
-            {
-                File.Create(@Path.Combine(docloc, "pto.txt"));
-                ptodates[0] = "";
-                ptodates[1] = "";
-                ptodates[2] = "";
-            }
+            ptodates = File.ReadAllLines(@Path.Combine(docloc, "pto.txt"));
             for(byte count = 0; count<2; count++)
             {
                 if (!ptodates[count].Equals(""))

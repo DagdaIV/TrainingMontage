@@ -55,6 +55,9 @@ namespace Shoyeido_Work_Calculator
             Repetez.Tick += new EventHandler(TimeStream);
             Repetez.Interval = 50;
             Repetez.Enabled = true;
+            string[] entrytext = new string[3];
+            if (!File.Exists(@Path.Combine(docloc, "pto.txt")))
+                File.WriteAllLines(@Path.Combine(docloc, "pto.txt"), new string[]{"","",""});
         }
 
         public DateTime ConvDate(string date)

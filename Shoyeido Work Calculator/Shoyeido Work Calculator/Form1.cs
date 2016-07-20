@@ -13,6 +13,9 @@ namespace Shoyeido_Work_Calculator
 {
     public partial class Shoyeido : Form
     {
+        private bool TmSrt = false;
+        private bool SetGoalVal = false;
+        private bool SetCTDVal = false;
         private bool Weekday = false;
         private bool Weeks = false;
         private bool Months = false;
@@ -51,10 +54,6 @@ namespace Shoyeido_Work_Calculator
             wdthismonth = workdaytot(firstdayom);
             wdremain = workdaytot(DateTime.Today);
             wdremainprec = (double)wdremain - 1 + DayFinPerc;
-            Timer Repetez = new Timer();
-            Repetez.Tick += new EventHandler(TimeStream);
-            Repetez.Interval = 50;
-            Repetez.Enabled = true;
             string[] entrytext = new string[3];
             if (!File.Exists(@Path.Combine(docloc, "pto.txt")))
                 File.WriteAllLines(@Path.Combine(docloc, "pto.txt"), new string[]{"","",""});
@@ -111,25 +110,26 @@ namespace Shoyeido_Work_Calculator
 
         private void TimeStream(object source, EventArgs e)
         {
-            Moment = DateTime.Now;
-            CurrentTime.Text = Moment.ToString("h:mm:ss");
-            CPDAdjPrec = (CallGoalVal - (CallsToDateVal + CallsTodayVal)) / ((wdremain-1) + (totaltimeleft / 8));
-            CPHAdjPrec = CPDAdjPrec / 8;
-            TPCAdjPrec = 60 / CPHAdjPrec / 60;
-            DayFinPerc = (timetodec(timespent) / (8-timetodec(timeshort)));
-            TPCChange.Text = dectoHHMM(TPCAdjPrec - TPCAdj);
-            if (Moment.TimeOfDay.Hours < 13)
-                timespent = Moment.AddHours(-8.5).TimeOfDay;
-            else
-                timespent = Moment.AddHours(-9.5).TimeOfDay;
-            totaltimeleft = 8 - timetodec(timeshort.Add(timespent));
-            callshouldatm = CPDAdj * DayFinPerc;
-            if (CallsTodayVal > CPDAdj)
-                SpareTime.Text = "Goal Complete!";
-            else if (CallsTodayVal > callshouldatm)
-                SpareTime.Text = dectoHHMM((CallsTodayVal - callshouldatm) * TPCAdj);
-            else
-                SpareTime.Text = "-(" + (int)(callshouldatm - CallsTodayVal + 1) + ") calls";
+              Moment = DateTime.Now;
+              CurrentTime.Text = Moment.ToString("h:mm:ss");
+              CPDAdjPrec = (CallGoalVal - (CallsToDateVal + CallsTodayVal)) / ((wdremain-1) + (totaltimeleft / 8));
+              CPHAdjPrec = CPDAdjPrec / 8;
+              TPCAdjPrec = 60 / CPHAdjPrec / 60;
+              DayFinPerc = (timetodec(timespent) / (8-timetodec(timeshort)));
+              TPCChange.Text = dectoHHMM(TPCAdjPrec - TPCAdj);
+              TimePerCall.Text = dectoHHMM(TPCAdj);
+              if (Moment.TimeOfDay.Hours < 13)
+                  timespent = Moment.AddHours(-8.5).TimeOfDay;
+              else
+                  timespent = Moment.AddHours(-9.5).TimeOfDay;
+              totaltimeleft = 8 - timetodec(timeshort.Add(timespent));
+              callshouldatm = CPDAdj * DayFinPerc;
+              if (CallsTodayVal > CPDAdj)
+                  SpareTime.Text = "Goal Complete!";
+              else if (CallsTodayVal > callshouldatm)
+                  SpareTime.Text = dectoHHMM((CallsTodayVal - callshouldatm) * TPCAdj);
+              else
+                  SpareTime.Text = "-(" + (int)(callshouldatm - CallsTodayVal + 1) + ") calls";
         }
 
         private string dectoHHMM(double decinput)
@@ -300,30 +300,6 @@ namespace Shoyeido_Work_Calculator
         {
             CallsTodayVal-=10;
             CallToday.Text = "" + (CallsTodayVal);
-        }
-
-        private void CallGoal_TextChanged_1(object sender, EventArgs e)
-        {
-            double.TryParse(CallGoal.Text, out CallGoalVal);
-            CPDBase = CallGoalVal / wdthismonth;
-            CPDAdj = (CallGoalVal - CallsToDateVal) / wdremain;
-            CPHBase = CPDBase / 8;
-            CPHAdj = CPDAdj / 8;
-            TPCBase = 1 / CPHBase;
-            TPCAdj = 1 / CPHAdj;
-            TimePerCall.Text = dectoHHMM(TPCAdj);
-        }
-
-        private void CallToDate_TextChanged(object sender, EventArgs e)
-        {
-            double.TryParse(CallToDate.Text, out CallsToDateVal);
-            CPDBase = CallGoalVal / wdthismonth;
-            CPDAdj = (CallGoalVal - CallsToDateVal) / wdremain;
-            CPHBase = CPDBase / 8;
-            CPHAdj = CPDAdj / 8;
-            TPCBase = 1 / CPHBase;
-            TPCAdj = 1 / CPHAdj;
-            TimePerCall.Text = dectoHHMM(TPCAdj);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -552,6 +528,48 @@ namespace Shoyeido_Work_Calculator
                 MessageBox.Show("This date is a holiday!"); 
             else
                 Clipboard.SetText(WeeksReturn(1).ToString("MM/dd/yyyy"));
+        }
+
+        private void SetCallGoal_Click(object sender, EventArgs e)
+        {
+
+            double.TryParse(CallGoal.Text, out CallGoalVal);
+            CPDBase = CallGoalVal / wdthismonth;
+            CPDAdj = (CallGoalVal - CallsToDateVal) / wdremain;
+            CPHBase = CPDBase / 8;
+            CPHAdj = CPDAdj / 8;
+            TPCBase = 1 / CPHBase;
+            TPCAdj = 1 / CPHAdj;
+            TimePerCall.Text = dectoHHMM(TPCAdj);
+            SetGoalVal = true;
+            if (!TmSrt && SetGoalVal && SetCTDVal)
+            {
+                Timer Repetez = new Timer();
+                Repetez.Tick += new EventHandler(TimeStream);
+                Repetez.Interval = 50;
+                Repetez.Enabled = true;
+                TmSrt = true;
+            }
+        }
+
+        private void CTDSetBut_Click(object sender, EventArgs e)
+        {
+            double.TryParse(CallToDate.Text, out CallsToDateVal);
+            CPDBase = CallGoalVal / wdthismonth;
+            CPDAdj = (CallGoalVal - CallsToDateVal) / wdremain;
+            CPHBase = CPDBase / 8;
+            CPHAdj = CPDAdj / 8;
+            TPCBase = 1 / CPHBase;
+            TPCAdj = 1 / CPHAdj;
+            SetCTDVal = true;
+            if (!TmSrt && SetGoalVal && SetCTDVal)
+            {
+                Timer Repetez = new Timer();
+                Repetez.Tick += new EventHandler(TimeStream);
+                Repetez.Interval = 50;
+                Repetez.Enabled = true;
+                TmSrt = true;
+            }
         }
 
     }

@@ -74,6 +74,8 @@
             this.button11 = new System.Windows.Forms.Button();
             this.WSPBut = new System.Windows.Forms.Button();
             this.OneWeekBut = new System.Windows.Forms.Button();
+            this.SetCallGoal = new System.Windows.Forms.Button();
+            this.CTDSetBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CallsTLabel
@@ -104,7 +106,6 @@
             this.CallToDate.TabIndex = 3;
             this.CallToDate.Text = "0";
             this.CallToDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.CallToDate.TextChanged += new System.EventHandler(this.CallToDate_TextChanged);
             // 
             // CallsToDateLabel
             // 
@@ -124,7 +125,6 @@
             this.CallGoal.TabIndex = 5;
             this.CallGoal.Text = "0";
             this.CallGoal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.CallGoal.TextChanged += new System.EventHandler(this.CallGoal_TextChanged_1);
             // 
             // CallGoalTxt
             // 
@@ -528,11 +528,33 @@
             this.OneWeekBut.UseVisualStyleBackColor = true;
             this.OneWeekBut.Click += new System.EventHandler(this.OneWeekBut_Click);
             // 
+            // SetCallGoal
+            // 
+            this.SetCallGoal.Location = new System.Drawing.Point(69, 103);
+            this.SetCallGoal.Name = "SetCallGoal";
+            this.SetCallGoal.Size = new System.Drawing.Size(33, 23);
+            this.SetCallGoal.TabIndex = 50;
+            this.SetCallGoal.Text = "Set";
+            this.SetCallGoal.UseVisualStyleBackColor = true;
+            this.SetCallGoal.Click += new System.EventHandler(this.SetCallGoal_Click);
+            // 
+            // CTDSetBut
+            // 
+            this.CTDSetBut.Location = new System.Drawing.Point(67, 61);
+            this.CTDSetBut.Name = "CTDSetBut";
+            this.CTDSetBut.Size = new System.Drawing.Size(33, 23);
+            this.CTDSetBut.TabIndex = 51;
+            this.CTDSetBut.Text = "Set";
+            this.CTDSetBut.UseVisualStyleBackColor = true;
+            this.CTDSetBut.Click += new System.EventHandler(this.CTDSetBut_Click);
+            // 
             // Shoyeido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(130, 782);
+            this.Controls.Add(this.CTDSetBut);
+            this.Controls.Add(this.SetCallGoal);
             this.Controls.Add(this.OneWeekBut);
             this.Controls.Add(this.WSPBut);
             this.Controls.Add(this.TomorrowBut);
@@ -633,6 +655,8 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button WSPBut;
         private System.Windows.Forms.Button OneWeekBut;
+        private System.Windows.Forms.Button SetCallGoal;
+        private System.Windows.Forms.Button CTDSetBut;
     }
 }
 

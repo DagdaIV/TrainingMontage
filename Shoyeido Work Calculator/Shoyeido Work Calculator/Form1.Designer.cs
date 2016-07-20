@@ -58,7 +58,6 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
             this.PCode = new System.Windows.Forms.TextBox();
             this.TZone = new System.Windows.Forms.TextBox();
             this.TShort = new System.Windows.Forms.TextBox();
@@ -69,6 +68,12 @@
             this.PlusTen = new System.Windows.Forms.Button();
             this.TimeShortMinus = new System.Windows.Forms.Button();
             this.TimeShortPlus = new System.Windows.Forms.Button();
+            this.PTOFormSpawn = new System.Windows.Forms.Button();
+            this.TodayBut = new System.Windows.Forms.Button();
+            this.TomorrowBut = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.WSPBut = new System.Windows.Forms.Button();
+            this.OneWeekBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CallsTLabel
@@ -361,16 +366,6 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Postal Code";
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(70, 588);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(52, 23);
-            this.button11.TabIndex = 30;
-            this.button11.Text = "11";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
             // PCode
             // 
             this.PCode.Location = new System.Drawing.Point(2, 272);
@@ -471,11 +466,78 @@
             this.TimeShortPlus.UseVisualStyleBackColor = true;
             this.TimeShortPlus.Click += new System.EventHandler(this.TimeShortPlus_Click);
             // 
+            // PTOFormSpawn
+            // 
+            this.PTOFormSpawn.Location = new System.Drawing.Point(27, 747);
+            this.PTOFormSpawn.Name = "PTOFormSpawn";
+            this.PTOFormSpawn.Size = new System.Drawing.Size(75, 23);
+            this.PTOFormSpawn.TabIndex = 44;
+            this.PTOFormSpawn.Text = "Add PTO";
+            this.PTOFormSpawn.UseVisualStyleBackColor = true;
+            this.PTOFormSpawn.Click += new System.EventHandler(this.PTOFormSpawn_Click);
+            // 
+            // TodayBut
+            // 
+            this.TodayBut.Location = new System.Drawing.Point(27, 625);
+            this.TodayBut.Name = "TodayBut";
+            this.TodayBut.Size = new System.Drawing.Size(75, 23);
+            this.TodayBut.TabIndex = 45;
+            this.TodayBut.Text = "Today";
+            this.TodayBut.UseVisualStyleBackColor = true;
+            this.TodayBut.Click += new System.EventHandler(this.TodayBut_Click);
+            // 
+            // TomorrowBut
+            // 
+            this.TomorrowBut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TomorrowBut.Location = new System.Drawing.Point(27, 651);
+            this.TomorrowBut.Margin = new System.Windows.Forms.Padding(0);
+            this.TomorrowBut.Name = "TomorrowBut";
+            this.TomorrowBut.Size = new System.Drawing.Size(75, 23);
+            this.TomorrowBut.TabIndex = 47;
+            this.TomorrowBut.Text = "Tomorrow";
+            this.TomorrowBut.UseVisualStyleBackColor = true;
+            this.TomorrowBut.Click += new System.EventHandler(this.TomorrowBut_Click);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(70, 588);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(52, 23);
+            this.button11.TabIndex = 30;
+            this.button11.Text = "11";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // WSPBut
+            // 
+            this.WSPBut.Location = new System.Drawing.Point(27, 706);
+            this.WSPBut.Name = "WSPBut";
+            this.WSPBut.Size = new System.Drawing.Size(75, 23);
+            this.WSPBut.TabIndex = 48;
+            this.WSPBut.Text = "WSP Sent";
+            this.WSPBut.UseVisualStyleBackColor = true;
+            this.WSPBut.Click += new System.EventHandler(this.WSPBut_Click);
+            // 
+            // OneWeekBut
+            // 
+            this.OneWeekBut.Location = new System.Drawing.Point(27, 677);
+            this.OneWeekBut.Name = "OneWeekBut";
+            this.OneWeekBut.Size = new System.Drawing.Size(75, 23);
+            this.OneWeekBut.TabIndex = 49;
+            this.OneWeekBut.Text = "Next Week";
+            this.OneWeekBut.UseVisualStyleBackColor = true;
+            this.OneWeekBut.Click += new System.EventHandler(this.OneWeekBut_Click);
+            // 
             // Shoyeido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(130, 618);
+            this.ClientSize = new System.Drawing.Size(130, 782);
+            this.Controls.Add(this.OneWeekBut);
+            this.Controls.Add(this.WSPBut);
+            this.Controls.Add(this.TomorrowBut);
+            this.Controls.Add(this.TodayBut);
+            this.Controls.Add(this.PTOFormSpawn);
             this.Controls.Add(this.TimeShortMinus);
             this.Controls.Add(this.TimeShortPlus);
             this.Controls.Add(this.MinusTen);
@@ -555,7 +617,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox PCode;
         private System.Windows.Forms.TextBox TZone;
         private System.Windows.Forms.TextBox TShort;
@@ -566,6 +627,12 @@
         private System.Windows.Forms.Button PlusTen;
         private System.Windows.Forms.Button TimeShortMinus;
         private System.Windows.Forms.Button TimeShortPlus;
+        private System.Windows.Forms.Button PTOFormSpawn;
+        private System.Windows.Forms.Button TodayBut;
+        private System.Windows.Forms.Button TomorrowBut;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button WSPBut;
+        private System.Windows.Forms.Button OneWeekBut;
     }
 }
 

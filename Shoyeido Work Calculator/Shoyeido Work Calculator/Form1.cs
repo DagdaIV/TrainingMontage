@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Shoyeido_Work_Calculator
 {
@@ -39,6 +40,7 @@ namespace Shoyeido_Work_Calculator
         private TimeSpan timeshort = new TimeSpan(0, 0, 0);
         private TimeSpan halfhour = new TimeSpan(0, 30, 0);
         private DateTime Moment = new DateTime();
+        string docloc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
 
         public Shoyeido()
@@ -55,6 +57,39 @@ namespace Shoyeido_Work_Calculator
             Repetez.Enabled = true;
         }
 
+        public DateTime ConvDate(string date)
+        {
+            DateTime dayquest = new DateTime(int.Parse(date.Substring(0, 4)), int.Parse(date.Substring(4, 2)), int.Parse(date.Substring(6, 2)));
+            return dayquest;
+        }
+
+        private bool DateBetween (DateTime inpdate, string datestring)
+        {
+            if (!datestring.Equals("") && (inpdate >= ConvDate(datestring.Substring(0, 8)) && inpdate <= ConvDate(datestring.Substring(8, 8))))
+                return true;
+            else
+                return false;
+        }
+
+        private bool ptotest(DateTime UseDate)
+        {
+            string[] ptodates = new string[3];
+            if (File.Exists(@Path.Combine(docloc, "pto.txt")))
+                ptodates = File.ReadAllLines(@Path.Combine(docloc, "pto.txt"));
+            else
+            {
+                ptodates[0] = "";
+                ptodates[1] = "";
+                ptodates[2] = "";
+            }
+            for (int counter = 0; counter < 2; counter++)
+            {
+                if (DateBetween(UseDate, ptodates[counter]))
+                    return true;
+            }
+            return false;
+        }
+
         private bool isholiday(DateTime UseDate)
         {
             DateTime laborhelper = new DateTime(UseDate.Year, 9, 1);
@@ -65,7 +100,7 @@ namespace Shoyeido_Work_Calculator
             DateTime labor = new DateTime(UseDate.Year, 9, 9 - (int)laborhelper.DayOfWeek);
             DateTime thanks = new DateTime(UseDate.Year, 11, 26 - (int)thankshelper.DayOfWeek);
             DateTime christ = new DateTime(UseDate.Year, 12, 25);
-            if (UseDate.Equals(newyear) || UseDate.Equals(memorial) || UseDate.Equals(independ) || UseDate.Equals(labor) || UseDate.Equals(thanks) || UseDate.Equals(christ))
+            if (ptotest(UseDate) || UseDate.Equals(newyear) || UseDate.Equals(memorial) || UseDate.Equals(independ) || UseDate.Equals(labor) || UseDate.Equals(thanks) || UseDate.Equals(christ))
                 return true;
             else
                 return false;
@@ -91,23 +126,7 @@ namespace Shoyeido_Work_Calculator
             else if (CallsTodayVal > callshouldatm)
                 SpareTime.Text = dectoHHMM((CallsTodayVal - callshouldatm) * TPCAdj);
             else
-                SpareTime.Text = "Behind! (" + (int)(callshouldatm - CallsTodayVal) + ")";
-        }
-
-        private bool isdayoff(DateTime UseDate)
-        {
-            DateTime laborhelper = new DateTime(UseDate.Year, 9, 1);
-            DateTime thankshelper = new DateTime(UseDate.Year, 11, 1);
-            DateTime newyear = new DateTime(UseDate.Year, 1, 1);
-            DateTime memorial = new DateTime(UseDate.Year, 5, 30);
-            DateTime independ = new DateTime(UseDate.Year, 7, 4);
-            DateTime labor = new DateTime(UseDate.Year, 9, 9 - (int)laborhelper.DayOfWeek);
-            DateTime thanks = new DateTime(UseDate.Year, 11, 26 - (int)thankshelper.DayOfWeek);
-            DateTime christ = new DateTime(UseDate.Year, 12, 25);
-            if (UseDate.Equals(newyear) || UseDate.Equals(memorial) || UseDate.Equals(independ) || UseDate.Equals(labor) || UseDate.Equals(thanks) || UseDate.Equals(christ)|| UseDate.DayOfWeek == DayOfWeek.Saturday || UseDate.DayOfWeek == DayOfWeek.Sunday)
-                return true;
-            else
-                return false;
+                SpareTime.Text = "-(" + (int)(callshouldatm - CallsTodayVal + 1) + ") calls";
         }
 
         private string dectoHHMM(double decinput)
@@ -143,26 +162,16 @@ namespace Shoyeido_Work_Calculator
         public DateTime WeeksReturn(int addweek)
         {
             DateTime finaldate = DateTime.Today.AddDays(7 * addweek);
-            if (isholiday(finaldate))
-            {
-                if ((int)finaldate.DayOfWeek == 5)
-                    finaldate = finaldate.AddDays(-1);
-                else
-                    finaldate = finaldate.AddDays(1);
-            }
+            while (isholiday(finaldate))
+                    finaldate = finaldate.AddDays(7);
             return finaldate;
         }
 
         public DateTime MonthsReturn(int addmonth)
         {
             DateTime finaldate = DateTime.Today.AddDays(28 * addmonth);
-            if (isholiday(finaldate))
-            {
-                if ((int)finaldate.DayOfWeek == 5)
-                    finaldate = finaldate.AddDays(-1);
-                else
-                    finaldate = finaldate.AddDays(1);
-            }
+            while (isholiday(finaldate))
+                finaldate = finaldate.AddDays(7); 
             return finaldate;
         }
 
@@ -196,7 +205,7 @@ namespace Shoyeido_Work_Calculator
             else
                 toadd = aimday - toadd;
             DateTime finaldate = DateTime.Today.AddDays(toadd);
-            if (isholiday(finaldate))
+            while (isholiday(finaldate))
                 finaldate = finaldate.AddDays(7);
             return finaldate;
         }
@@ -204,13 +213,8 @@ namespace Shoyeido_Work_Calculator
         public DateTime YearsReturn(byte addyear)
         {
             DateTime finaldate = DateTime.Today.AddDays(364 * addyear);
-            if (isholiday(finaldate))
-            {
-                if ((int)finaldate.DayOfWeek == 5)
-                    finaldate = finaldate.AddDays(-1);
-                else
-                    finaldate = finaldate.AddDays(1);
-            }
+            while (isholiday(finaldate))
+                finaldate = finaldate.AddDays(7);
             return finaldate;
         }
 
@@ -440,7 +444,7 @@ namespace Shoyeido_Work_Calculator
             button2.Text = "2";
             button3.Text = "3";
             button4.Text = "4";
-            button4.Text = "5";
+            button5.Text = "5";
             button1.Visible = true;
             button2.Visible = true;
             button3.Visible = true;
@@ -510,6 +514,41 @@ namespace Shoyeido_Work_Calculator
         {
             timeshort = timeshort.Subtract(halfhour);
             TShort.Text = dectoHHMM(timetodec(timeshort));
+        }
+
+        private void TodayBut_Click(object sender, EventArgs e)
+        { 
+            Clipboard.SetText(DateTime.Today.ToString("MM/dd/yyyy"));
+        }
+
+        private void TomorrowBut_Click(object sender, EventArgs e)
+        {
+            if (isholiday(DateTime.Today.AddDays(1)))
+                MessageBox.Show("This date is a holiday!");
+            else
+                Clipboard.SetText(DateTime.Today.AddDays(1).ToString("MM/dd/yyyy"));
+        }
+
+        private void WSPBut_Click(object sender, EventArgs e)
+        {
+            if (isholiday(WeeksReturn(3)))
+                MessageBox.Show("This date is a holiday!");
+            else
+                Clipboard.SetText(WeeksReturn(3).ToString("MM/dd/yyyy"));
+        }
+
+        private void PTOFormSpawn_Click(object sender, EventArgs e)
+        {
+            Form2 PTOForm = new Form2();
+            PTOForm.Show();
+        }
+
+        private void OneWeekBut_Click(object sender, EventArgs e)
+        {
+            if (isholiday(WeeksReturn(1)))
+                MessageBox.Show("This date is a holiday!"); 
+            else
+                Clipboard.SetText(WeeksReturn(1).ToString("MM/dd/yyyy"));
         }
 
     }

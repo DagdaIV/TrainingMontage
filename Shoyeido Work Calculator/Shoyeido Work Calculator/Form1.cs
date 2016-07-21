@@ -80,11 +80,9 @@ namespace Shoyeido_Work_Calculator
                 ptodates = File.ReadAllLines(@Path.Combine(docloc, "pto.txt"));
             else
             {
-                ptodates[0] = "";
-                ptodates[1] = "";
-                ptodates[2] = "";
+                ptodates= new string[]{"","",""};
             }
-            for (int counter = 0; counter < 2; counter++)
+            for (int counter = 0; counter <= 2; counter++)
             {
                 if (DateBetween(UseDate, ptodates[counter]))
                     return true;
@@ -102,7 +100,7 @@ namespace Shoyeido_Work_Calculator
             DateTime labor = new DateTime(UseDate.Year, 9, 9 - (int)laborhelper.DayOfWeek);
             DateTime thanks = new DateTime(UseDate.Year, 11, 26 - (int)thankshelper.DayOfWeek);
             DateTime christ = new DateTime(UseDate.Year, 12, 25);
-            if (ptotest(UseDate) || UseDate.Equals(newyear) || UseDate.Equals(memorial) || UseDate.Equals(independ) || UseDate.Equals(labor) || UseDate.Equals(thanks) || UseDate.Equals(christ))
+            if ((byte)UseDate.DayOfWeek==0|| (byte)UseDate.DayOfWeek==6|| ptotest(UseDate) || UseDate.Equals(newyear) || UseDate.Equals(memorial) || UseDate.Equals(independ) || UseDate.Equals(labor) || UseDate.Equals(thanks) || UseDate.Equals(christ))
                 return true;
             else
                 return false;
@@ -510,10 +508,14 @@ namespace Shoyeido_Work_Calculator
 
         private void WSPBut_Click(object sender, EventArgs e)
         {
-            if (isholiday(WeeksReturn(3)))
-                MessageBox.Show("This date is a holiday!");
-            else
-                Clipboard.SetText(WeeksReturn(3).ToString("MM/dd/yyyy"));
+            DateTime Targday = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+            for (byte count = 0; count < 7; count++)
+            {
+                Targday = Targday.AddDays(1);
+                if (isholiday(Targday))
+                    count--;
+            }
+            Clipboard.SetText(Targday.ToString("MM/dd/yyyy"));
         }
 
         private void PTOFormSpawn_Click(object sender, EventArgs e)

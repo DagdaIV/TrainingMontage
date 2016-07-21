@@ -119,6 +119,7 @@ namespace Shoyeido_Work_Calculator
 
         private void ClearBut_Click(object sender, EventArgs e)
         {
+            File.WriteAllLines(@Path.Combine(docloc, "pto.txt"), new string[] { "", "", "" });
             this.dateTimePicker1.CustomFormat = " ";
             this.dateTimePicker1.Format = DateTimePickerFormat.Custom;
             this.dateTimePicker2.CustomFormat = " ";

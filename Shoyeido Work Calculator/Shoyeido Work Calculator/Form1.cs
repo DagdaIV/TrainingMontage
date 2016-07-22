@@ -308,8 +308,6 @@ namespace Shoyeido_Work_Calculator
                 Clipboard.SetText(WeeksReturn(1).ToString("MM/dd/yyyy"));
             if (Months)
                 Clipboard.SetText(MonthsReturn(1).ToString("MM/dd/yyyy"));
-            if (Years)
-                Clipboard.SetText(YearsReturn(1).ToString("MM/dd/yyyy"));
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -362,31 +360,6 @@ namespace Shoyeido_Work_Calculator
                 Clipboard.SetText(MonthsReturn(6).ToString("MM/dd/yyyy"));
         }
 
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-            Clipboard.SetText(MonthsReturn(7).ToString("MM/dd/yyyy"));
-        }
-
-        private void button8_Click_1(object sender, EventArgs e)
-        {
-            Clipboard.SetText(MonthsReturn(8).ToString("MM/dd/yyyy"));
-        }
-
-        private void button9_Click_1(object sender, EventArgs e)
-        {
-            Clipboard.SetText(MonthsReturn(9).ToString("MM/dd/yyyy"));
-        }
-
-        private void button10_Click_1(object sender, EventArgs e)
-        {
-            Clipboard.SetText(MonthsReturn(10).ToString("MM/dd/yyyy"));
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(MonthsReturn(11).ToString("MM/dd/yyyy"));
-        }
-
         private void WeekdayBut_Click_1(object sender, EventArgs e)
         {
             Weekday = true;
@@ -399,11 +372,6 @@ namespace Shoyeido_Work_Calculator
             button4.Visible = true;
             button5.Visible = true;
             button6.Visible = false;
-            button7.Visible = false;
-            button8.Visible = false;
-            button9.Visible = false;
-            button10.Visible = false;
-            button11.Visible = false;
             button1.Text = "Mon";
             button2.Text = "Tue";
             button3.Text = "Wed";
@@ -428,11 +396,6 @@ namespace Shoyeido_Work_Calculator
             button4.Visible = true;
             button5.Visible = true;
             button6.Visible = true;
-            button7.Visible = false;
-            button8.Visible = false;
-            button9.Visible = false;
-            button10.Visible = false;
-            button11.Visible = false;
         }
 
         private void MonthsBut_Click_1(object sender, EventArgs e)
@@ -452,33 +415,6 @@ namespace Shoyeido_Work_Calculator
             button4.Visible = true;
             button5.Visible = true;
             button6.Visible = true;
-            button7.Visible = true;
-            button8.Visible = true;
-            button9.Visible = true;
-            button10.Visible = true;
-            button11.Visible = true;
-        }
-
-        private void YearsBut_Click_1(object sender, EventArgs e)
-        {
-            Weekday = false;
-            Weeks = false;
-            Months = false;
-            Years = true;
-            button1.Text = "1";
-            button2.Text = "2";
-            button1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = false;
-            button4.Visible = false;
-            button5.Visible = false;
-            button6.Visible = false;
-            button7.Visible = false;
-            button8.Visible = false;
-            button9.Visible = false;
-            button10.Visible = false;
-            button11.Visible = false;
-
         }
 
         private void TimeShortPlus_Click(object sender, EventArgs e)
@@ -572,6 +508,16 @@ namespace Shoyeido_Work_Calculator
                 Repetez.Enabled = true;
                 TmSrt = true;
             }
+        }
+
+        private void IntroBut_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(DateTime.Today.ToString("M/dd/yy")+" called them,");
+        }
+
+        private void YearBut_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(YearsReturn(1).ToString("MM/dd/yyyy"));
         }
 
     }
